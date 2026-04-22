@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: board-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    restart: always
+
+  frontend:
+    build:
+      context: .
+    container_name: board-frontend
+    ports:
+      - "80:80"
+    restart: always
+    depends_on:
+      - backend
