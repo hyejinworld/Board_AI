@@ -23,7 +23,10 @@ jobs:
           script: |
             cd ~/Board_AI || git clone https://github.com/hyejinworld/Board_AI.git ~/Board_AI
             cd ~/Board_AI
-            git pull origin main
+            git fetch origin main
+            git reset --hard origin/main
             sudo docker-compose down
             sudo docker-compose up --build -d
             sudo docker image prune -f
+
+            
